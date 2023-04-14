@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/buttons.dir/buttons.cpp.o"
   "CMakeFiles/buttons.dir/main.cpp.o"
   "buttons"
   "buttons.pdb"

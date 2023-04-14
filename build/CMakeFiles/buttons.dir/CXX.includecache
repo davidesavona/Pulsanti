@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/pi/Desktop/Pulsanti/buttons.h
+wiringPi.h
+/home/pi/Desktop/Pulsanti/wiringPi.h
+
 /home/pi/Desktop/Pulsanti/main.cpp
 iostream
 -
@@ -13,4 +17,6 @@ wiringPi.h
 /home/pi/Desktop/Pulsanti/wiringPi.h
 pthread.h
 /home/pi/Desktop/Pulsanti/pthread.h
+buttons.h
+/home/pi/Desktop/Pulsanti/buttons.h
 
