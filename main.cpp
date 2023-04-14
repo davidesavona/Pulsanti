@@ -1,8 +1,11 @@
 #include <iostream>
 #include "wiringPi.h"
 #include "pthread.h"
+#include "buttons.h"
 
 #define DEFAULT_LOOP_TIME_NS 1000000L
+
+buttons B;
 
 timespec addition(timespec a, timespec b) {
     timespec r;
@@ -20,17 +23,7 @@ timespec addition(timespec a, timespec b) {
     return r;
 }
 
-unsigned short int isPressed(unsigned short int button) {
-    static struct timespec lastCall;
-    struct timespec thisCall;
-    float timeDiff;
 
-    clock_gettime(CLOCK_REALTIME, &thisCall);
-    timeDiff = (thisCall.tv_sec + thisCall.tv_nsec/1E9 - lastCall.tv_sec - lastCall.tv_nsec/1E9)*5;
-    lastCall = thisCall;
-
-    return timeDiff > 1 ? 1 : 0;
-}
 
 
 void *threadFunction(void* a) {
@@ -59,30 +52,18 @@ void *threadFunction(void* a) {
     // Save into variables the first input variables from GUI
     // TODO: save user variables
 
-    bool flag=1;
-    int debounceCounter=0;
+    
+    int Counter=0;
     while(1) {
 
        // chartclass.readButton();
         t_next = addition(t_next, t_period); // update t_next (needed for usleep at the end)clock_gettime ( CLOCK_MONOTONIC, &t_now);
 
         if(loop_count%1 == 0) {
-
-            if(!digitalRead(16)){
-                debounceCounter ++;
-                if(debounceCounter>50){
-                    
-                    if(flag){
-                        std::cout<<"pressed"<<"\n";
-                        flag=0;
-                }
-                }
-
-            
-            } else{ 
-                flag=1;
-                debounceCounter=0;
-            } 
+            if(B.state()) {
+                Counter++; 
+                std::cout<<Counter<<"\n";
+            }
         }
         if(loop_count%1000==0){ // 1 sec
 
@@ -103,9 +84,10 @@ void *threadFunction(void* a) {
 }
 int main(int, char**) {
 
-    wiringPiSetupGpio();
-    pinMode(16,INPUT);
-    pullUpDnControl(16,PUD_UP);
+    wiringPiSetup();
+    B.initButtons();
+
+    
     
 
     pthread_t thread;

@@ -539,6 +539,33 @@ buttons/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/build
 .PHONY : buttons/fast
 
+buttons.o: buttons.cpp.o
+
+.PHONY : buttons.o
+
+# target to build an object file
+buttons.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/buttons.cpp.o
+.PHONY : buttons.cpp.o
+
+buttons.i: buttons.cpp.i
+
+.PHONY : buttons.i
+
+# target to preprocess a source file
+buttons.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/buttons.cpp.i
+.PHONY : buttons.cpp.i
+
+buttons.s: buttons.cpp.s
+
+.PHONY : buttons.s
+
+# target to generate assembly for a file
+buttons.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/buttons.cpp.s
+.PHONY : buttons.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -606,6 +633,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... buttons"
+	@echo "... buttons.o"
+	@echo "... buttons.i"
+	@echo "... buttons.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
