@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/pi/Desktop/Pulsanti/buttons.cpp
+buttons.h
+/home/pi/Desktop/Pulsanti/buttons.h
+
 /home/pi/Desktop/Pulsanti/buttons.h
 wiringPi.h
 /home/pi/Desktop/Pulsanti/wiringPi.h

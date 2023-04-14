@@ -12,7 +12,7 @@ public:
     void initButtons();
     bool state();
 private:
-    short button_1=27;
+    short button_1=22;
     bool flag=1;
     int debounceCounter=0;
 

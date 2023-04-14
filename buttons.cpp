@@ -23,7 +23,7 @@ bool buttons::state(){
     }
     if(!digitalRead(button_1)){
                 debounceCounter ++;
-                if(debounceCounter>50){
+                if(debounceCounter>100){
                     if(flag){
                        flag=0;
                        return true;
