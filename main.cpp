@@ -9,7 +9,8 @@ button UP_BUTTON;
 button DOWN_BUTTON;
 button PID_BUTTON;
 button GREEN_BUTTON;
-button B;
+bool pidButtonFlag=0;
+bool greenButtonFlag=0;
 
 
 timespec addition(timespec a, timespec b) {
@@ -65,17 +66,39 @@ void *threadFunction(void* a) {
         t_next = addition(t_next, t_period); // update t_next (needed for usleep at the end)clock_gettime ( CLOCK_MONOTONIC, &t_now);
 
         if(loop_count%1 == 0) {
-            if(UP_BUTTON.state()) { 
-                std::cout<<"UP"<<"\n";
-            }
-            if(DOWN_BUTTON.state()) { 
-                std::cout<<"DOWN"<<"\n";
-            }
-            if(PID_BUTTON.state()) { 
-                std::cout<<"PID"<<"\n";
+            if(greenButtonFlag){
+                if(UP_BUTTON.state()) { 
+                    if(!pidButtonFlag) {
+                        std::cout<<"Current UP"<<"\n";
+                    }else{
+                        std::cout<<"Cadence UP"<<"\n";
+                    }
+                }
+                if(DOWN_BUTTON.state()) { 
+                    if(!pidButtonFlag) {
+                        std::cout<<"Current DOWN"<<"\n";
+                    }else{
+                        std::cout<<"Cadence DOWN"<<"\n";
+                    }
+                }
+                if(PID_BUTTON.state()) { 
+                    if(pidButtonFlag) {
+                        pidButtonFlag=false;
+                        std::cout<<"PID OFF"<<"\n";
+                    }else{
+                        pidButtonFlag=true;
+                        std::cout<<"PID ON"<<"\n";
+                    }
+                }
             }
             if(GREEN_BUTTON.state()) { 
-                std::cout<<"GREEN"<<"\n";
+                if(greenButtonFlag) {
+                    greenButtonFlag=false;
+                    std::cout<<"STOP"<<"\n";
+                }else{
+                    greenButtonFlag=true;
+                    std::cout<<"START"<<"\n";
+                }
             }
             
             
