@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Desktop/Pulsanti/main.cpp
+iostream
+-
+wiringPi.h
+/home/pi/Desktop/Pulsanti/wiringPi.h
+pthread.h
+/home/pi/Desktop/Pulsanti/pthread.h
+
