@@ -539,32 +539,32 @@ buttons/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/build
 .PHONY : buttons/fast
 
-buttons.o: buttons.cpp.o
+button.o: button.cpp.o
 
-.PHONY : buttons.o
+.PHONY : button.o
 
 # target to build an object file
-buttons.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/buttons.cpp.o
-.PHONY : buttons.cpp.o
+button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/button.cpp.o
+.PHONY : button.cpp.o
 
-buttons.i: buttons.cpp.i
+button.i: button.cpp.i
 
-.PHONY : buttons.i
+.PHONY : button.i
 
 # target to preprocess a source file
-buttons.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/buttons.cpp.i
-.PHONY : buttons.cpp.i
+button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/button.cpp.i
+.PHONY : button.cpp.i
 
-buttons.s: buttons.cpp.s
+button.s: button.cpp.s
 
-.PHONY : buttons.s
+.PHONY : button.s
 
 # target to generate assembly for a file
-buttons.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/buttons.cpp.s
-.PHONY : buttons.cpp.s
+button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buttons.dir/build.make CMakeFiles/buttons.dir/button.cpp.s
+.PHONY : button.cpp.s
 
 main.o: main.cpp.o
 
@@ -633,9 +633,9 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... buttons"
-	@echo "... buttons.o"
-	@echo "... buttons.i"
-	@echo "... buttons.s"
+	@echo "... button.o"
+	@echo "... button.i"
+	@echo "... button.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

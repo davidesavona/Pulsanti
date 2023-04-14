@@ -6,7 +6,7 @@
 },
 {
   "directory": "/home/pi/Desktop/Pulsanti/build",
-  "command": "/usr/bin/arm-linux-gnueabihf-g++   -g -o CMakeFiles/buttons.dir/buttons.cpp.o -c /home/pi/Desktop/Pulsanti/buttons.cpp",
-  "file": "/home/pi/Desktop/Pulsanti/buttons.cpp"
+  "command": "/usr/bin/arm-linux-gnueabihf-g++   -g -o CMakeFiles/buttons.dir/button.cpp.o -c /home/pi/Desktop/Pulsanti/button.cpp",
+  "file": "/home/pi/Desktop/Pulsanti/button.cpp"
 }
 ]

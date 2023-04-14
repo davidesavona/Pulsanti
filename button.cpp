@@ -1,27 +1,28 @@
-#include "buttons.h"
+#include "button.h"
 
-buttons::buttons()
+button::button()
 {
 
 }
 
-buttons::~buttons()
+button::~button()
 {
 
 }
 
-void buttons::initButtons(){
-    pinMode(button_1,INPUT);
-    pullUpDnControl(button_1,PUD_UP);
+void button::initButton(short gpioPin){
+    pin=gpioPin;
+    pinMode(pin,INPUT);
+    pullUpDnControl(pin,PUD_UP);
 }
 
-bool buttons::state(){
-    if(digitalRead(button_1)){
+bool button::state(){
+    if(digitalRead(pin)){
         flag=1;
         debounceCounter=0;
         return false;
     }
-    if(!digitalRead(button_1)){
+    if(!digitalRead(pin)){
                 debounceCounter ++;
                 if(debounceCounter>100){
                     if(flag){

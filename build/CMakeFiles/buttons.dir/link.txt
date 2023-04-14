@@ -1,1 +1,1 @@
-/usr/bin/arm-linux-gnueabihf-g++ -g -rdynamic CMakeFiles/buttons.dir/main.cpp.o CMakeFiles/buttons.dir/buttons.cpp.o -o buttons  -lwiringPi -lpthread 
+/usr/bin/arm-linux-gnueabihf-g++ -g -rdynamic CMakeFiles/buttons.dir/main.cpp.o CMakeFiles/buttons.dir/button.cpp.o -o buttons  -lwiringPi -lpthread 

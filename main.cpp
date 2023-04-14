@@ -1,11 +1,16 @@
 #include <iostream>
 #include "wiringPi.h"
 #include "pthread.h"
-#include "buttons.h"
+#include "button.h"
 
 #define DEFAULT_LOOP_TIME_NS 1000000L
 
-buttons B;
+button UP_BUTTON;
+button DOWN_BUTTON;
+button PID_BUTTON;
+button GREEN_BUTTON;
+button B;
+
 
 timespec addition(timespec a, timespec b) {
     timespec r;
@@ -60,10 +65,20 @@ void *threadFunction(void* a) {
         t_next = addition(t_next, t_period); // update t_next (needed for usleep at the end)clock_gettime ( CLOCK_MONOTONIC, &t_now);
 
         if(loop_count%1 == 0) {
-            if(B.state()) {
-                Counter++; 
-                std::cout<<Counter<<"\n";
+            if(UP_BUTTON.state()) { 
+                std::cout<<"UP"<<"\n";
             }
+            if(DOWN_BUTTON.state()) { 
+                std::cout<<"DOWN"<<"\n";
+            }
+            if(PID_BUTTON.state()) { 
+                std::cout<<"PID"<<"\n";
+            }
+            if(GREEN_BUTTON.state()) { 
+                std::cout<<"GREEN"<<"\n";
+            }
+            
+            
         }
         if(loop_count%1000==0){ // 1 sec
 
@@ -85,7 +100,11 @@ void *threadFunction(void* a) {
 int main(int, char**) {
 
     wiringPiSetup();
-    B.initButtons();
+    UP_BUTTON.initButton(22);
+    DOWN_BUTTON.initButton(23);
+    PID_BUTTON.initButton(24);
+    GREEN_BUTTON.initButton(25);
+    //B.initButton(25);
 
     
     

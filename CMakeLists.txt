@@ -4,7 +4,7 @@ project(buttons VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(buttons main.cpp buttons.h buttons.cpp)
+add_executable(buttons main.cpp button.h button.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
