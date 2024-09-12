@@ -66,7 +66,7 @@ void *threadFunction(void* a) {
         t_next = addition(t_next, t_period); // update t_next (needed for usleep at the end)clock_gettime ( CLOCK_MONOTONIC, &t_now);
 
         if(loop_count%1 == 0) {
-            if(greenButtonFlag){
+            if(1){
                 if(UP_BUTTON.state()) { 
                     if(!pidButtonFlag) {
                         std::cout<<"Current UP"<<"\n";
