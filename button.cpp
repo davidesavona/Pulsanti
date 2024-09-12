@@ -33,3 +33,19 @@ bool button::state(){
     }
     return false;
 }
+
+bool button::state_bis(){
+    if(!digitalRead(pin)){
+        debounceCounter=0;
+        return false;
+    }
+    if(digitalRead(pin)){
+                debounceCounter ++;
+                if(debounceCounter>100){
+                    return true;
+                }
+    }
+    return false;
+}
+
+

@@ -91,15 +91,27 @@ void *threadFunction(void* a) {
                     }
                 }
             }
-            if(GREEN_BUTTON.state()) { 
-                if(greenButtonFlag) {
-                    greenButtonFlag=false;
-                    std::cout<<"STOP"<<"\n";
-                }else{
+            
+            // if(GREEN_BUTTON.state_bis()) { 
+            //     if(greenButtonFlag) {
+            //         greenButtonFlag=false;
+            //         std::cout<<"STOP"<<"\n";
+            //     }else{
+            //         greenButtonFlag=true;
+            //         std::cout<<"START"<<"\n";
+            //     }
+            // }
+
+             if(GREEN_BUTTON.state_bis()) { 
+               
+                    if (!greenButtonFlag) std::cout<<"EMERGENZA!"<<"\n";
                     greenButtonFlag=true;
-                    std::cout<<"START"<<"\n";
+                
+            }else{
+                    
+                    if (greenButtonFlag)std::cout<<"clean"<<"\n";
+                    greenButtonFlag=false;
                 }
-            }
             
             
         }

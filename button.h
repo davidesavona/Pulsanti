@@ -11,6 +11,7 @@ public:
     ~button();
     void initButton(short gpioPin);
     bool state();
+    bool state_bis();
     
 private:
     short pin=-1;
